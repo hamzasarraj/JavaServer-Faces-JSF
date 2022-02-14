@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"     
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<f:view locale="#{country.localeCode}"> 
+    <h:head>
+    	<title>Listener</title>
+    </h:head>
+    <h:body>
+
+	<h4>#{msgs.registrationTitle}</h4>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<!-- L'attribut valueChangeListener permet de 
+			préciser une expression qui désigne une méthode 
+			qui sera exécutée durant les traitements du cyle de vie
+			 de la requête. Pour que ces traitements puissent être 
+			 déclenchés, il faut soumettre la page. -->
+		Choix du pays: 
+		<h:selectOneMenu value="#{country.localeCode}" onchange="submit()"
+				valueChangeListener="#{country.changeCodeLocalePays}">
+				<f:selectItems value="#{country.countryInMap}" />
+			</h:selectOneMenu>
+
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</f:view>
+
+</html>
+
